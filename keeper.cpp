@@ -72,6 +72,13 @@ void Keeper::remove(int index)
 		head = head->next;
 		cnt++;
 	}
+	if (index == 0)
+	{
+		size--;
+		head->data->~Carrier();
+		head = head->next;
+		return;
+	}
 	Elem* prev = head;
 	prev->next->data->~Carrier();
 	prev->next->next;
@@ -82,7 +89,7 @@ void Keeper::save()
 {
 	ofstream fout;
 	string initfile = IO_FILENAME;
-	fout.open(initfile, ios_base::app);
+	fout.open(initfile, ios_base::trunc);
 	if (!fout)
 	{
 		throw ERROR_MESSAGE_OPEN_FILE_ERROR;
@@ -103,9 +110,11 @@ void Keeper::save()
 void Keeper::load()
 {
 	setlocale(LC_ALL, "Russian");
-	if (size != 0)
+	/*if (size != 0)
 	{
 		Elem* buffer;
+		
+
 		while (head->next != NULL)
 		{
 			buffer = head;
@@ -113,9 +122,13 @@ void Keeper::load()
 			buffer->data->~Carrier();
 			delete(head);
 		}
+
+
 		head->data->~Carrier();
 		delete(head);
+		
 	}
+	*/
 	ifstream fin;
 	string initfile = IO_FILENAME;
 	Carrier* transports;
@@ -139,7 +152,7 @@ void Keeper::load()
 	double trane_cargo_size;
 	List<City> trane_route;
 
-	fin.open(initfile);
+	fin.open(initfile, ios_base::in);
 	if (!fin) {
 		throw ERROR_MESSAGE_OPEN_FILE_ERROR;
 		system("pause");

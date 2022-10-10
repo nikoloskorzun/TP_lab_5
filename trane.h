@@ -31,7 +31,7 @@ public:
 	void redact(List<City> route) override;
 
 
-
+	void draw();
 
 private:
 	string name;

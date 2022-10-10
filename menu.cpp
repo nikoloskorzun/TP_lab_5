@@ -27,6 +27,11 @@ void Menu::main_menu()
 		case 7:
 			exit_from_programm();
 			break;
+		case 666:
+			cout << "draw tranes ON\n";
+			flag_draw_train = 1;
+
+			break;
 		
 		}
 	}
@@ -42,7 +47,7 @@ int Menu::show_options()
 	cout << "4 - Save in file: \"" << IO_FILENAME<<"\"" << endl;
 	cout << "5 - Load from file: \"" << IO_FILENAME << "\"" << endl;
 	cout << "6 - Delete transport" << endl;
-	
+	cout << "666 - For secret options" << endl;
 	cout << "7 - Exit" << endl;
 	cin >> c1;
 	return c1;
@@ -140,6 +145,8 @@ void Menu::add_new()
 		trane = new Trane;
 		transports = trane;
 		trane->rewrite();
+		if(flag_draw_train)
+			trane->draw();
 		list.insert(transports);
 		break;
 

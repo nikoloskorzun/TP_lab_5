@@ -136,3 +136,39 @@ void Trane::redact(List<City> route) {
 
 }
 
+
+void Trane::draw()
+{
+
+	cout << "    #          ";
+	for (uint32_t i = 0; i < count_railway_carriage; i++)
+	{
+		cout << RAILWAY_CARRIAGE_1;
+	}
+	cout<<endl;
+	cout << "    #   ###### ";
+	for (uint32_t i = 0; i < count_railway_carriage; i++)
+	{
+		cout << RAILWAY_CARRIAGE_2 ;
+	}
+	cout << endl;
+	cout << "  /####### ### ";
+	for (uint32_t i = 0; i < count_railway_carriage; i++)
+	{
+		cout << RAILWAY_CARRIAGE_3 ;
+	}	cout << endl;
+	cout << " /############-";
+
+	for (uint32_t i = 0; i < count_railway_carriage; i++)
+	{
+		cout << RAILWAY_CARRIAGE_4 ;
+	}	cout << endl;
+	cout << "/© © ©      ©© ";
+
+	for (uint32_t i = 0; i < count_railway_carriage; i++)
+	{
+		cout << RAILWAY_CARRIAGE_5 ;
+	}	cout << endl;
+
+}
+

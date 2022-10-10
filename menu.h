@@ -5,6 +5,7 @@ class Menu {
 protected:
 	Keeper list;
 	Carrier* transports;
+	int flag_draw_train = 0;
 	int exit = 1;
 public:
 	void main_menu();
